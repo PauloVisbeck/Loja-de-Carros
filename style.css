@@ -2,14 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    list-style: none; /* Tira as bolinhas dos itens da lista*/
+    list-style: none;
 }
 
 body{
     background-color: #000000;
     color: #ffffff;
     font-style: 16px;
-    overflow: hidden; /* Tira a barra de rolagem*/
+    overflow: hidden;
 }
 
 header {     
@@ -20,7 +20,7 @@ header {
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 600px;
-    z-index: 2; /* Trás o header para frente da section pois ela é relative*/
+    z-index: 2;
    
 
     & h1 {
@@ -56,12 +56,12 @@ section {
     & .list {
         width: 70vw;
         height: 100%;
-        margin: auto; /* Centraliza a div list */
+        margin: auto; 
         position: relative;
 
         & .item {
-            position: absolute; /* Posicionar a imagem onde desejarmos na tela */
-            inset: 0; /* É o mesmo que setar o top, botton, left e right todos com esse valor */
+            position: absolute; 
+            inset: 0; 
 
             & .car-img {
                 position: absolute;
@@ -71,7 +71,20 @@ section {
 
                 & img {
                     width: 80%;
-                    transform: rotate(-20deg); /* Rotação do carro */
+                    transform: rotate(-20deg);
+                }
+                 /* Sombra dos carros */
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background-color: #000000;
+                    width: 750px;
+                    height: 100px;
+                    top: 120%;
+                    left: 90px;
+                    border-radius: 50%;
+                    filter: blur(50px);
+
                 }
             }
         }
@@ -84,8 +97,8 @@ section {
             margin-top: 35px;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Joga toda a div content para o centro*/
-            align-items: end; /* Alinha todos os itens dentro da div a direita*/
+            justify-content: center;
+            align-items: end;
             gap: 20px;            
 
             & .car-information {
@@ -99,6 +112,10 @@ section {
                 margin-bottom: 40px;
             }
 
+            & .lamborghini {
+                font-size: 90px;
+            }
+
             & .description {
                 color: #d9d9d9;
                 font-size: 25px;
@@ -110,17 +127,25 @@ section {
                 border-radius: 30px;
                 height: 55px;
                 width: 180px;
-                text-transform: uppercase; /* Transforma todo o texto em maiusculo*/
+                text-transform: uppercase;
                 border: 2px solid #791fd3;
                 background-color: #beff1b;
                 color: #000000;
                 cursor: pointer;
                 font-weight: bold;
                 font-size: 16px;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &:active {
+                    opacity: 0.5;
+                }
             }
         }
 
-        /* Linha entre as duas setas*/
+        /* Linha entre as duas setas */
         &::before {
             content: '';
             position: absolute;
@@ -132,11 +157,11 @@ section {
     }
    
     & .arrows {
-        width: 71vw; /* Distância entre as setas*/
+        width: 71vw;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -25px); /* Parâmetros X e Y*/
+        transform: translate(-50%, -25px);
         display: flex;
         justify-content: space-between;
 
@@ -187,14 +212,78 @@ section {
             }
 
             & .active {
-                background-color: #ffffff; /* A classe que estiver ativa o tracinho fica branco*/
+                background-color: #ffffff;
+            }
+        }
+    }    
+}
+
+/*  ==============  Efeitos da página  ==============  */
+
+section {
+
+    & .list {
+        
+        --calculation: 1;
+
+        & .item {           
+            transform: translate(calc(100vw * var(--calculation))); 
+            transition: 0.5s;
+            opacity: 0;
+            
+            & .car-img {
+                & img {
+                    transform: rotate(0);
+                    transition: 0.5s;
+                    transition-delay: 0.3s;
+                } 
+            }
+
+            & .content {
+
+                & .car-information, h2, .lamborghini, .description, .information  {
+                    transform: translateX(calc(200px  * var(--calculation)));
+                    transition: 0.7s;
+                    transform-style: 0.3s;
+                    opacity: 0;
+                }
+
+                & h2 {
+                    transition-delay: 0.5s;
+                }
+
+                & .lamborghini {
+                    transition-delay: 0.5s;
+                }
+
+                & .description {
+                    transition-delay: 0.7s;
+                }
+
+                & .information {
+                    transition-delay: 0.9s;
+                }
+            }
+        }
+       
+        & .active {
+            transform: translate(0);
+            transition: 0.5s;
+            opacity: 1;
+
+            & .car-img {
+                & img {
+                    transform: rotate(-20deg);                   
+                } 
+            }
+
+            & .content {
+
+                & .car-information, h2, .lamborghini, .description, .information {
+                    transform: translateX(0);
+                    opacity: 1;                    
+                }
             }
         }
     }
 }
-
-
-/*https://www.youtube.com/watch?v=AZ1drCVTDgs&t=16s&ab_channel=DevClub%7CPrograma%C3%A7%C3%A3o*/
-
-
-

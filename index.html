@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h1>Visbeck Veículos</h1>
+        <h1 id="storeName">Vbk Veículos</h1>
         <nav>
             <ul>
                 <li><a href="">Home</a></li>
@@ -22,10 +22,11 @@
         </nav>
     </header>
 
-    <section>
+    <section class="container">
 
         <div class="list">
-            <div class="item">
+
+            <div class="item active">
                 <div class="car-img">
                     <img src="./img/Ferrari.png" alt="imagem Ferrari">
                 </div>
@@ -37,13 +38,37 @@
                         Avio Costruzioni, a empresa construiu seu primeiro carro em 1940.</p>
                     <button class="information">Saiba Mais</button>
                 </div>
-
             </div>
+
+            <div class="item">
+                <div class="car-img">
+                    <img src="./img/Porsche.png" alt="imagem Ferrari">
+                </div>
+                <div class="content">
+                    <p class="car-information">Único dono</p>
+                    <h2>Porsche</h2>
+                    <p class="description">A Porsche é uma marca alemã de automóveis desportivos de luxo e alto desempenho. A empresa foi fundada em 1931 por Ferdinand Porsche em Estugarda.</p>
+                    <button class="information">Saiba Mais</button>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="car-img">
+                    <img src="./img/Lamborghini.png" alt="imagem Ferrari">
+                </div>
+                <div class="content">
+                    <p class="car-information">Único dono</p>
+                    <h2 class="lamborghini">Lamborghini</h2>
+                    <p class="description">A Lamborghini é uma fabricante italiana de automóveis de luxo e desportivos de alto desempenho. A marca foi fundada em 1963 por Ferruccio Lamborghini, que também era dono da fábrica de tratores Lamborghini Trattori S.p.A. Atualmente, a Lamborghini é uma subsidiária da divisão Audi AG do grupo Volkswagen AG.</p>
+                    <button class="information">Saiba Mais</button>
+                </div>
+            </div>
+
         </div>
 
         <div class="arrows">
-            <button><img src="./img/Seta-esquerda.png" alt="Seta-para-esquerda"></button>
-            <button><img src="./img/Seta-direita.png" alt="Seta-para-direita"></button>
+            <button id="prev"><img src="./img/Seta-esquerda.png" alt="Seta-para-esquerda"></button>
+            <button id="next"><img src="./img/Seta-direita.png" alt="Seta-para-direita"></button>
         </div>
 
         <div class="indicators">
@@ -56,6 +81,8 @@
         </div>
 
     </section>
+
+    <script src="./script.js"></script>
 
 </body>
 
