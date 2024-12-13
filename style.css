@@ -1,39 +1,90 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
 }
 
-body{
+body {
     background-color: #000000;
     color: #ffffff;
-    font-style: 16px;
+    font-size: 16px;
     overflow: hidden;
 }
 
-header {     
-    width: 100vw;    
+header {
+    width: 100vw;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
     display: grid;
-    align-items: center;
     grid-template-columns: 1fr 600px;
     z-index: 2;
-   
 
-    & h1 {
+    #storeName {
+        /* position: fixed; */
+        display: flex;
         margin-left: 150px;
         margin-right: 100px;
-        font-size: 60px;
         color: #cd0000;
     }
-    
+
+    .letter-v {
+        display: flex;
+    }
+
+    .letter {
+        font-size: 250px;
+        font-weight: bolder;
+        font-family: "Dancing Script", cursive;
+    }
+
+    .remaining-word {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .word1 {
+        position: relative;
+        left: 12px;
+    }
+
+    .word2 {
+        position: relative;
+        left: -30px;
+    }
+
+    .word {
+        font-size: 80px;
+        font-weight: bolder;
+    }
+
+    #menu-toggle {
+        /* display: block; */
+        background: none;
+        border: none;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        visibility: hidden;
+
+
+
+        &:hover {
+            color: #beff1b;
+        }
+    }
+
     & nav {
+        margin-top: 10px;
+
         & ul {
             display: grid;
-            grid-template-columns: repeat(3, 150px);            
+            grid-template-columns: repeat(3, 150px);
         }
     }
 
@@ -48,6 +99,7 @@ header {
     }
 }
 
+
 section {
     background-image: radial-gradient(#470964, #791fd3);
     height: 100vh;
@@ -56,12 +108,12 @@ section {
     & .list {
         width: 70vw;
         height: 100%;
-        margin: auto; 
+        margin: auto;
         position: relative;
 
         & .item {
-            position: absolute; 
-            inset: 0; 
+            position: absolute;
+            inset: 0;
 
             & .car-img {
                 position: absolute;
@@ -73,7 +125,8 @@ section {
                     width: 80%;
                     transform: rotate(-20deg);
                 }
-                 /* Sombra dos carros */
+
+                /* Sombra dos carros */
                 &::before {
                     content: "";
                     position: absolute;
@@ -99,7 +152,7 @@ section {
             flex-direction: column;
             justify-content: center;
             align-items: end;
-            gap: 20px;            
+            gap: 20px;
 
             & .car-information {
                 font-size: 25px;
@@ -108,12 +161,12 @@ section {
 
             & h2 {
                 font-size: 120px;
-                line-height: 100px ;
+                line-height: 100px;
                 margin-bottom: 40px;
             }
 
             & .lamborghini {
-                font-size: 90px;
+                font-size: 80px;
             }
 
             & .description {
@@ -136,14 +189,14 @@ section {
                 font-size: 16px;
 
                 &:hover {
-                    opacity: 0.8;
+                    opacity: 0.8;                                                         
                 }
 
                 &:active {
-                    opacity: 0.5;
+                    opacity: 0.6;
                 }
-            }
-        }
+            }            
+        }    
 
         /* Linha entre as duas setas */
         &::before {
@@ -155,7 +208,7 @@ section {
             border-top: 1px solid #ffffff
         }
     }
-   
+
     & .arrows {
         width: 71vw;
         position: absolute;
@@ -174,8 +227,8 @@ section {
             cursor: pointer;
 
             & img {
-               width: 30px;
-               cursor: pointer; 
+                width: 30px;
+                cursor: pointer;
             }
 
             &:hover {
@@ -195,7 +248,7 @@ section {
         flex-direction: column;
         justify-content: end;
         gap: 15px;
-        
+
         & .number {
             font-size: 5em;
         }
@@ -215,34 +268,39 @@ section {
                 background-color: #ffffff;
             }
         }
-    }    
+    }
 }
+
 
 /*  ==============  Efeitos da página  ==============  */
 
 section {
 
     & .list {
-        
-        --calculation: 1;
 
-        & .item {           
-            transform: translate(calc(100vw * var(--calculation))); 
+        --calculation: -1;
+
+        & .item {
+            transform: translate(calc(100vw * var(--calculation)));
             transition: 0.5s;
             opacity: 0;
-            
+
             & .car-img {
                 & img {
                     transform: rotate(0);
                     transition: 0.5s;
                     transition-delay: 0.3s;
-                } 
+                }
             }
 
             & .content {
 
-                & .car-information, h2, .lamborghini, .description, .information  {
-                    transform: translateX(calc(200px  * var(--calculation)));
+                & .car-information,
+                h2,
+                .lamborghini,
+                .description,
+                .information {
+                    transform: translateX(calc(200px * var(--calculation)));
                     transition: 0.7s;
                     transform-style: 0.3s;
                     opacity: 0;
@@ -265,7 +323,7 @@ section {
                 }
             }
         }
-       
+
         & .active {
             transform: translate(0);
             transition: 0.5s;
@@ -273,17 +331,745 @@ section {
 
             & .car-img {
                 & img {
-                    transform: rotate(-20deg);                   
-                } 
+                    transform: rotate(-20deg);
+                }
             }
 
             & .content {
 
-                & .car-information, h2, .lamborghini, .description, .information {
+                & .car-information,
+                h2,
+                .lamborghini,
+                .description,
+                .information {
                     transform: translateX(0);
-                    opacity: 1;                    
+                    opacity: 1;
                 }
             }
         }
     }
+}
+
+/*  ==============  Responsividade da página  ==============  */
+
+@media (max-width: 1700px) {
+    & .lamborghini {
+        font-size: 75px !important;
+    }
+
+    section {
+
+        & .list {
+
+            & .item {
+                & .car-img {
+                    width: 65%;
+
+                    & img {
+                        width: 75%;
+                    }
+
+                    /* Sombra dos carros */
+                    &::before {
+                        width: 550px;
+                        top: 180%;
+                        left: 90px;
+                    }
+                }
+            }
+
+            & .content {
+                position: absolute;
+                right: 100px;
+                width: 50%;
+                height: 100%;
+                margin-top: 35px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+
+                & .car-information {
+                    font-size: 25px;
+                }
+
+                & h2 {
+                    font-size: 100px;
+                    line-height: 100px;
+                    margin-bottom: 40px;
+                }
+
+                & .lamborghini {
+                    font-size: 75px !important;
+                }
+
+                & .description {                    
+                    font-size: 25px;
+                    text-align: right;
+                    max-width: 700px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 55px;
+                    width: 180px;                   
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .letter {
+        font-size: 200px !important;
+    }
+
+    .word {
+        font-size: 60px !important;
+    }
+
+    .word2 {
+        left: -10px !important;
+    }
+
+    section {
+
+        & .list {
+
+            & .item {
+
+                & .car-img {
+                    width: 60%;
+
+                    & img {
+                        width: 70%;
+                    }
+
+                    /* Sombra dos carros */
+                    &::before {
+                        width: 550px;
+                        top: 180%;
+                        left: 90px;
+                    }
+                }
+            }
+
+            & .content {
+                position: absolute;
+                right: 100px;
+                width: 50%;
+                height: 100%;
+                margin-top: 35px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+
+                & .car-information {
+                    font-size: 25px;
+                }
+
+                & h2 {
+                    font-size: 100px;
+                    line-height: 100px;
+                    margin-bottom: 40px;
+                }
+
+                & .lamborghini {
+                    font-size: 75px !important;
+                }
+
+                & .description {                   
+                    font-size: 25px;
+                    text-align: right;
+                    max-width: 700px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 55px;
+                    width: 180px;                    
+                    font-size: 16px;
+                }
+            }
+
+            /* Linha entre as duas setas */
+            &::before {                
+                height: 200px;
+                width: 100%;
+                top: 50%;
+            }
+        }
+
+        & .arrows {
+            width: 71vw;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -25px);
+            display: flex;
+            justify-content: space-between;
+
+            & button {
+                top: 60%;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;                
+
+                & img {
+                    width: 30px;                    
+                }
+            }
+        }
+
+        & .indicators {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%);
+            height: 200px;
+            width: 90vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            gap: 15px;
+
+            & .number {
+                font-size: 5em;
+            }
+
+            & ul {
+                display: flex;
+                gap: 10px;
+
+                & li {
+                    width: 50px;
+                    height: 5px;
+                    background-color: #beff1b;
+                    transition: 0.5s;
+                }
+
+                & .active {
+                    background-color: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+
+    section {
+
+        & .list {
+
+            & .content {
+                position: absolute;
+                right: 100px;
+                width: 50%;
+                height: 100%;
+                margin-top: 55px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+
+                & .car-information {
+                    font-size: 25px;
+                }
+
+                & h2 {
+                    font-size: 100px;
+                    line-height: 100px;
+                    margin-bottom: 40px;
+                }
+
+                & .lamborghini {
+                    font-size: 75px !important;
+                }
+
+                & .description {                    
+                    font-size: 25px;
+                    text-align: right;
+                    max-width: 700px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 55px;
+                    width: 180px;                    
+                    font-size: 16px;                   
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1200px) {
+    #menu-toggle {
+        visibility: visible !important;
+        /* Menu hamburguer fica visível*/
+    }
+
+    nav {
+        opacity: 0;
+        visibility: hidden;
+        /* A nav fica invisível*/
+
+        & ul {
+            display: flex !important;
+            flex-direction: column;
+            /* Os elementos da nav mudam para coluna*/
+            position: fixed;
+            right: 30px;
+            top: 50px;
+            
+
+            li {
+                &:hover {
+                    background-color: rgb(212, 140, 245);
+                }
+
+            }
+        }
+
+    }
+
+    /* Alteração do tamanho da Logo*/
+    .letter {
+        font-size: 150px !important;
+    }
+
+    .word {
+        font-size: 40px !important;
+    }
+
+    .word2 {
+        left: -10px !important;
+    }
+
+    section {
+
+        & .list {
+
+            & .content {
+                position: absolute;
+                right: 100px;
+                width: 50%;
+                height: 100%;
+                margin-top: 55px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                
+
+                & .car-information {
+                    font-size: 20px;
+                }
+
+                & h2 {
+                    font-size: 50px;
+                    line-height: 100px;
+                    margin-bottom: 40px;
+                }
+
+                & .lamborghini {
+                    font-size: 50px !important;
+                }
+
+                & .description {                    
+                    font-size: 18px;
+                    text-align: right;
+                    max-width: 300px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 35px;
+                    width: 140px;                    
+                    font-size: 12px;                   
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #storeName {
+        margin-left: 15px !important;
+    }
+
+    #menu-toggle {
+        font-size: 20px !important;
+    }
+
+    nav {
+
+        & ul {
+            display: flex !important;
+            flex-direction: column;
+            position: fixed;
+            right: 30px;
+            top: 50px;
+            
+            li {
+                &:hover {
+                    background-color: rgb(212, 140, 245);
+                }
+
+            }
+        }
+
+    }
+
+    & a {
+        font-size: 18px !important;
+
+    }
+
+    /* Alteração do tamanho da Logo*/
+    .letter {
+        font-size: 70px !important;
+    }
+
+    .word {
+        font-size: 15px !important;
+    }
+
+    .word2 {
+        left: -2px !important;
+    }
+
+    section {
+
+        & .list {
+            display: flex !important;
+            flex-direction: column !important;
+
+            & .item {
+                & .car-img {
+                    width: 50%;
+                   
+                    & img {
+                        margin-left: 40px;
+                        width: 60%;
+                    }
+
+                    /* Sombra dos carros */
+                    &::before {
+                        width: 250px;
+                        height: 70px;
+                        top: 180%;
+                        left: 0px;
+                    }
+                }
+            }
+
+            .content {
+                position: absolute;
+                right: 100px;
+                width: 50%;
+                height: 100%;
+                margin-top: 55px;
+                justify-content: center;
+                align-items: end;
+              
+
+                & .car-information {
+                    font-size: 10px;
+                }
+
+                & h2 {
+                    font-size: 50px;
+                    line-height: 100px;
+                    margin-bottom: 40px;
+                }
+
+                & .lamborghini {
+                    font-size: 50px !important;
+                    margin-bottom: 20px;
+                }
+
+                & .description {                    
+                    font-size: 18px;
+                    text-align: right;
+                    max-width: 300px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 35px;
+                    width: 140px;                    
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    & .indicators {
+        gap: 10px !important;
+
+        & .number {
+            font-size: 1.5em !important;
+        }
+
+        & ul {
+            & li {
+                width: 20px !important;
+                height: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+
+    section {
+
+        & .list {
+
+            & .item {
+                & .car-img {
+                    width: 50%;                  
+
+                    & img {
+                        margin-left: 40px;
+                        width: 60%;
+                    }
+
+                    /* Sombra dos carros */
+                    &::before {
+                        width: 250px;
+                        height: 70px;
+                        top: 180%;
+                        left: 0px;
+                    }
+                }
+
+
+            }
+
+            .content {
+                position: absolute;
+                right: 100px;
+                width: 50%;
+                height: 100%;
+                margin-top: 55px;
+                justify-content: center;
+                align-items: end;                
+
+
+                & .car-information {
+                    font-size: 10px;
+                }
+
+                & h2 {
+                    font-size: 25px;
+                    line-height: 100px;
+                    margin-bottom: 40px;
+                }
+
+                & .lamborghini {
+                    font-size: 25px !important;
+                }
+
+                & .description {                    
+                    font-size: 12px;
+                    text-align: right;
+                    max-width: 200px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 25px;
+                    width: 120px;                    
+                    font-size: 10px;
+                }
+            }
+
+            /* Linha entre as duas setas */
+            &::before {               
+                height: 200px;
+                width: 100%;
+                top: 49%;                
+            }
+        }
+
+    }
+
+    & .arrows {
+        width: 71vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25px);
+        display: flex;
+        justify-content: space-between;
+
+        & button {
+            top: 70%;
+            width: 30px !important;
+            height: 30px !important;
+            border-radius: 50%;            
+
+            & img {
+                width: 15px !important;                
+            }            
+        }
+    }
+
+    & .indicators {
+        gap: 10px !important;
+
+        & .number {
+            font-size: 1.5em !important;
+        }
+
+        & ul {
+
+            & li {
+                width: 20px !important;
+                height: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+
+    section {
+
+        & .list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+
+            & .item {                
+                width: 100%;    
+                padding-top: 70px;               
+
+
+                & .car-img {
+                    width: 50%;                    
+                    top:30% !important;
+                    transform: translateY(-0%) !important;
+
+                    & img {
+                        margin-left: 50%;                        
+                        width: 60%;
+                    }
+
+                    /* Sombra dos carros */
+                    &::before {
+                        width: 250px;
+                        height: 70px;
+                        top: 180%;
+                        left: 0px;
+                    }
+                }
+
+
+            }
+
+            .content {
+                position: absolute;                
+                width: 50%;
+                height: 100%;
+                margin-top: 5px;                
+                align-items: center;
+                gap: 5px;
+
+
+                & .car-information {
+                    font-size: 10px;
+                }
+
+                & h2 {
+                    font-size: 25px;
+                    line-height: 100px;
+                    margin-bottom: 20px;
+                }
+
+                & .lamborghini {
+                    font-size: 25px !important;
+                    margin-bottom: 20px;
+                }
+
+                & .description {                    
+                    font-size: 12px;
+                    text-align: right;
+                    max-width: 200px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 25px;
+                    width: 120px;                    
+                    font-size: 10px;
+                }
+            }
+
+            /* Linha entre as duas setas */
+            &::before {                
+                position: absolute;
+                height: 200px;
+                width: 100%;
+                top: 49%;
+                border: none;                
+            }
+        }
+
+    }
+
+    & .arrows {
+        width: 71vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25px);
+        display: flex;
+        justify-content: space-between;
+
+        & button {
+            top: 70%;
+            width: 30px !important;
+            height: 30px !important;            
+
+            & img {
+                width: 15px !important;                
+            }
+        }
+    }
+
+    & .indicators {
+        gap: 10px !important;
+
+        & .number {
+            font-size: 1.5em !important;
+        }
+
+        & ul {
+
+            & li {
+                width: 20px !important;
+                height: 5px;
+            }
+        }
+    }
+}
+
+
+/* Quando a nav recebe a classe show ela passa a ficar visível*/
+nav.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    /* Usar opacity junto com visibility cria um efeito de transição suave. */
 }
