@@ -943,11 +943,11 @@ section {
 
 @media (max-width: 600px) {
 
-    body {
+    /* body {
         overflow: scroll;
-    }
+    } */
 
-    section {
+    section {                    
 
         & .list {
             display: flex;
@@ -984,11 +984,12 @@ section {
 
             .content {
                 position: absolute;                
-                width: 50%;
+                width: 70%;
                 height: 100%;
                 margin-top: 45px;                
-                align-items: center;
-                gap: 5px;
+                align-items: center;                
+                gap: 5px;                
+                left: 40px;
 
 
                 & .car-information {
@@ -1008,8 +1009,8 @@ section {
 
                 & .description {                    
                     font-size: 18px;
-                    text-align: right;
-                    max-width: 200px;
+                    text-align: center;
+                    max-width: 300px;                                       
                 }
 
                 & .information {
@@ -1062,7 +1063,7 @@ section {
         & ul {
 
             & li {
-                width: 20px !important;
+                width: 15px !important;
                 height: 5px;
             }
         }
