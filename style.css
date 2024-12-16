@@ -943,6 +943,10 @@ section {
 
 @media (max-width: 600px) {
 
+    body {
+        overflow: scroll;
+    }
+
     section {
 
         & .list {
@@ -953,17 +957,17 @@ section {
 
             & .item {                
                 width: 100%;    
-                padding-top: 70px;               
+                padding-top: 60px;               
 
 
                 & .car-img {
-                    width: 50%;                    
-                    top:30% !important;
+                    width: 70%;                    
+                    top:20% !important;
                     transform: translateY(-0%) !important;
 
                     & img {
-                        margin-left: 50%;                        
-                        width: 60%;
+                        margin-left:50px;                                               
+                        width: 80%;
                     }
 
                     /* Sombra dos carros */
@@ -982,28 +986,28 @@ section {
                 position: absolute;                
                 width: 50%;
                 height: 100%;
-                margin-top: 5px;                
+                margin-top: 45px;                
                 align-items: center;
                 gap: 5px;
 
 
                 & .car-information {
-                    font-size: 10px;
+                    font-size: 15px;
                 }
 
                 & h2 {
-                    font-size: 25px;
+                    font-size: 35px;
                     line-height: 100px;
                     margin-bottom: 20px;
                 }
 
                 & .lamborghini {
-                    font-size: 25px !important;
+                    font-size: 35px !important;
                     margin-bottom: 20px;
                 }
 
                 & .description {                    
-                    font-size: 12px;
+                    font-size: 18px;
                     text-align: right;
                     max-width: 200px;
                 }
