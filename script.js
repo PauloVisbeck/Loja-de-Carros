@@ -49,7 +49,8 @@ prevButton.addEventListener("click", () => {
 
 nextButton.addEventListener("click", () => {
     
-    const newDirection = -1    
+    const newDirection = 1
+    // const newDirection = -1    
  
     active = active + 1 > lastPosition ? firstPosition : active + 1
     updateActiveCar(newDirection);

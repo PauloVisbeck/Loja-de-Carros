@@ -278,7 +278,8 @@ section {
 
     & .list {
 
-        --calculation: -1;
+        /* 1 = Os carros sempre irão entrar pelo lado direito da página */
+        --calculation: 1;
 
         & .item {
             transform: translate(calc(100vw * var(--calculation)));
